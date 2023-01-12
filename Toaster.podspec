@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Toaster'
-  s.version          = 'v0.0.2'
-  s.summary          = 'A short description of Toaster.'
+  s.version          = '0.0.2'
+  s.summary          = 'Toaster - SwiftUI toast library for iOS, macOS, and tvOS'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Toaster is a SwiftUI toast library for iOS, macOS, and tvOS that allows you to quickly add customizable WCAG 2.1 compliant toast functionality to your SwiftUI with minimal code.
                        DESC
 
   s.homepage         = 'https://github.com/glowcap/Toaster'
@@ -29,8 +29,9 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/daymeing'
 
   s.ios.deployment_target = '15.0'
+  s.swift_version = '5.0'
 
-  s.source_files = 'Toaster/Classes/**/*'
+  s.source_files = 'Sources/Toaster/**/*'
   
   # s.resource_bundles = {
   #   'Toaster' => ['Toaster/Assets/*.png']
