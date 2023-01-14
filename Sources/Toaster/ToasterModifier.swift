@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ToasterModifier: ViewModifier {
   
-  /// toast to be shown
+  /// toast content to be shown
   @Binding var toast: Toaster?
   
   /// needed to dismiss on tap
@@ -17,16 +17,29 @@ struct ToasterModifier: ViewModifier {
   
   func body(content: Content) -> some View {
     content
+      .allowsHitTesting(toast == nil)
+      .accessibilityHidden(toast != nil)
       .frame(maxWidth: .infinity, maxHeight: .infinity)
       .overlay(toasterOverlay)
       .onChange(of: toast) { _ in showToast() }
+      .onRotate { rotation in
+        guard rotation != .unknown else { return }
+        showToast()
+      }
   }
   
   private var toasterOverlay: some View {
     ZStack {
+      if toast != nil {
+        Color(.clear)
+          .frame(maxWidth: .infinity, maxHeight: .infinity)
+          .disabled(true)
+      }
       toasterView()
         .offset(y: -30)
+        .accessibilitySortPriority(1000)
     }.animation(.spring(), value: toast)
+    .accessibilityElement(children: .contain)
   }
 
   @ViewBuilder private func toasterView() -> some View {
@@ -47,7 +60,7 @@ struct ToasterModifier: ViewModifier {
     guard let toast else { return }
   
     UIImpactFeedbackGenerator(style: .light).impactOccurred()
-    
+
     if toast.duration > 0 {
       workItem?.cancel()
       

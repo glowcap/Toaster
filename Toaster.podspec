@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Toaster'
-  s.version          = '0.0.2'
+  s.version          = '0.0.3'
   s.summary          = 'Toaster - SwiftUI toast library for iOS, macOS, and tvOS'
 
 # This description is used to generate tags and improve search results.

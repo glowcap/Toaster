@@ -44,4 +44,13 @@ extension ToastType {
     }
   }
   
+  var prefix: String {
+    switch self {
+    case .error: return "error,"
+    case .info: return "information,"
+    case .success: return "success,"
+    case .warning: return "warning,"
+    }
+  }
+  
 }

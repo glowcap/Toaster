@@ -8,7 +8,7 @@
 import SwiftUI
 import Toaster
 
-struct ContentView: View {
+struct ToastDemoView: View {
   
   @State private var toast: Toaster? = nil
   
@@ -36,7 +36,7 @@ struct ContentView: View {
   
 }
 
-extension ContentView {
+extension ToastDemoView {
   
   var infoButton: some View {
     Button {
@@ -85,6 +85,6 @@ extension ContentView {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
+    ToastDemoView()
   }
 }

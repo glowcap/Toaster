@@ -16,6 +16,10 @@ struct ToasterView: View {
   
   var onCancel: (() -> Void)
   
+  var accessibilityTitle: String {
+    "\(type.prefix) \(title)"
+  }
+  
   private var theme: ToasterTheme {
     ToasterTheme(type, colorScheme: colorScheme)
   }
@@ -45,32 +49,44 @@ private extension ToasterView {
   var icon: some View {
     Image(systemName: type.iconSystemName)
       .foregroundColor(theme.accent)
+      .accessibilityHidden(true)
   }
   
   var contentText: some View {
     VStack(alignment: .leading) {
-      Text(title)
-        .font(.callout)
-        .fontWeight(.medium)
-        .foregroundColor(theme.textColor)
-      
-      if let message = message {
-        Text(message)
-          .font(.caption)
-          .foregroundColor(theme.subtextColor)
+      titleText
+      if message != nil {
+        messageText
       }
     }
+  }
+  
+  var titleText: some View {
+    Text(title)
+      .font(.callout)
+      .fontWeight(.medium)
+      .foregroundColor(theme.textColor)
+      .accessibilityLabel(accessibilityTitle)
+  }
+  
+  var messageText: some View {
+    Text(message ?? "")
+      .font(.caption)
+      .foregroundColor(theme.subtextColor)
   }
   
   var mainContent: some View {
     HStack(alignment: .top) {
       icon
       contentText
+        .accessibilitySortPriority(1)
       Spacer(minLength: 10)
       closeButton
+        .accessibilitySortPriority(0)
     }
     .padding([.vertical, .trailing], 8)
     .padding(.leading, 16)
+    .accessibilityElement(children: .contain)
   }
   
   var closeButton: some View {
@@ -81,6 +97,7 @@ private extension ToasterView {
         .font(.system(size: 12))
         .foregroundColor(theme.textColor)
     }
+    .accessibilityLabel("close")
   }
   
 }
