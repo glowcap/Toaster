@@ -50,7 +50,7 @@ Toaster is written in, and designed for, SwiftUI. This makes implementation in y
 import Toaster
 
 struct YourViewThatDisplaysToasts {
-  @State  _private_  _var_  toast: Toaster? = _nil
+  @State private var toast: Toaster? = nil
   
   var body: some View {
     NavigationStack {
