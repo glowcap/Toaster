@@ -68,7 +68,8 @@ struct YourViewThatDisplaysToasts {
 }
 ```
 
-** Duration **
+**Duration**
+
 In accordance with WCAG 2.1 guidelines, Toaster's toasts default to a display duration of 6 seconds. This can be changed by setting the `duration` parameter in the initializer.
 
 ```swift
@@ -105,6 +106,7 @@ Toaster strives to meet WCAG 2.1 AA compliance out of the box in these categorie
 
 Toaster's default color scheme meets the standard color ratio requirements for  [text](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html) (4.5:1)
 <br>
+
 **Guideline 2: Consistent Identification and Location**
 
 In accordance with  WCAG guideline  [3.2.4](https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-consistent-functionality.html), toaster presents toasts add a prefix of the toast type for screen readers. 
@@ -162,7 +164,7 @@ This is also handled almost natively by SwiftUI's font types. However, The lengt
 
 <br> 
 
-**Guideline 9:**  **Announcing toast message content without focus**
+**Guideline 9 (_under development_):**  **Announcing toast message content without focus**
 
 New to WCAG 2.1, satisfying  [Guideline 4.1.3](https://www.w3.org/TR/WCAG21/#status-messages)  requires that:
 
