@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-public enum ToastType {
+/// Types of toasts that can be displayed.
+public enum ToastType: CaseIterable {
   case error
   case info
   case success
@@ -26,6 +27,7 @@ extension ToastType {
     }
   }
   
+  // Color key for toast type
   var configKey: String {
     switch self {
     case .error: return Config.error
@@ -35,6 +37,7 @@ extension ToastType {
     }
   }
   
+  // Default colors for toasts
   var defaultColor: Color {
     switch self {
     case .error: return Color.red
@@ -44,6 +47,8 @@ extension ToastType {
     }
   }
   
+  // TODO: - localization needed
+  /// Title prefix for screen readers.
   var prefix: String {
     switch self {
     case .error: return "error,"

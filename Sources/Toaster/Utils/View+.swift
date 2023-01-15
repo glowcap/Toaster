@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Adds device rotation listener to a view
 struct DeviceRotationViewModifier: ViewModifier {
   let action: (UIDeviceOrientation) -> Void
   

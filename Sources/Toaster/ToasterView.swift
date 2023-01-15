@@ -109,30 +109,30 @@ struct ToasterView_Previews: PreviewProvider {
       
       ToasterView(
         type: .info,
-        title: "Info - Toast without message"
+        title: "Info Toast without message"
       ) {}
       
       ToasterView(
         type: .info,
-        title: "Info",
+        title: "Imortant Info",
         message: "Toaster provides information with accessibility in mind"
       ) {}
       
       ToasterView(
         type: .success,
-        title: "Success",
+        title: "Success Toast!",
         message: "Toaster provides information with accessibility in mind"
       ) {}
       
       ToasterView(
         type: .warning,
-        title: "Warning",
+        title: "Oh no! Warning",
         message: "Toaster provides information with accessibility in mind"
       ) {}
       
       ToasterView(
         type: .error,
-        title: "Error",
+        title: "Wait! This is not good 🫣",
         message: "Toaster provides information with accessibility in mind"
       ) {}
     }

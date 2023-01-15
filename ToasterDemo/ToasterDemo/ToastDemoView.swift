@@ -39,46 +39,31 @@ struct ToastDemoView: View {
 extension ToastDemoView {
   
   var infoButton: some View {
-    Button {
+    Button("Show Info Toast") {
       toast = showToast(.info)
-    } label: {
-      Text("Show Info Toast")
-        .foregroundColor(.white)
     }
-    .buttonStyle(.borderedProminent)
+    .toastButtonStyle(.info)
   }
   
   var successButton: some View {
-    Button {
+    Button("Show Success Toast") {
       toast = showToast(.success)
-    } label: {
-      Text("Show Success Toast")
-        .foregroundColor(.white)
     }
-    .buttonStyle(.borderedProminent)
-    .tint(.green)
+    .toastButtonStyle(.success)
   }
   
   var warningButton: some View {
-    Button {
+    Button("Show Warning Toast") {
       toast = showToast(.warning)
-    } label: {
-      Text("Show Warning Toast")
-        .foregroundColor(.white)
     }
-    .buttonStyle(.borderedProminent)
-    .tint(.orange)
+    .toastButtonStyle(.warning)
   }
   
   var errorButton: some View {
-    Button {
+    Button("Show Error Toast") {
       toast = showToast(.error)
-    } label: {
-      Text("Show Error Toast")
-        .foregroundColor(.white)
     }
-    .buttonStyle(.borderedProminent)
-    .tint(.red)
+    .toastButtonStyle(.error)
   }
   
 }

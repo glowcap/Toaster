@@ -8,6 +8,10 @@
 import SwiftUI
 
 extension Color {
+  
+  /// Converts hex value to Color
+  /// - Parameter hex: Hex color code as `String`
+  /// - Note: Hex color can include or omit `#` in the string
   init?(hex: String) {
     var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
     hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")

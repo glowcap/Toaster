@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Config keys for color values
 struct Config {
   static let error = "error_color"
   static let warning = "warning_color"

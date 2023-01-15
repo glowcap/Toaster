@@ -21,10 +21,10 @@ struct ToasterModifier: ViewModifier {
       .accessibilityHidden(toast != nil)
       .frame(maxWidth: .infinity, maxHeight: .infinity)
       .overlay(toasterOverlay)
-      .onChange(of: toast) { _ in showToast() }
+      .onChange(of: toast) { _ in trackToast() }
       .onRotate { rotation in
         guard rotation != .unknown else { return }
-        showToast()
+        trackToast()
       }
   }
   
@@ -56,21 +56,21 @@ struct ToasterModifier: ViewModifier {
     }
   }
   
-  private func showToast() {
+  /// Tracks toast's life cycle
+  private func trackToast() {
     guard let toast else { return }
   
+    /// adds tactile feedback to notify the user that a toast is being displayed
     UIImpactFeedbackGenerator(style: .light).impactOccurred()
-
-    if toast.duration > 0 {
-      workItem?.cancel()
-      
-      let task = DispatchWorkItem { dismissToast() }
-  
-      workItem = task
-      DispatchQueue.main.asyncAfter(deadline: .now() + toast.duration, execute: task)
-    }
+    
+    guard toast.duration > 0 else { return }
+    workItem = DispatchWorkItem { dismissToast() }
+    DispatchQueue.main
+      .asyncAfter(deadline: .now() + toast.duration, execute: workItem!)
   }
   
+  
+  /// Triggers toast dismissal with animation
   private func dismissToast() {
     withAnimation() { toast = nil }
     workItem?.cancel()
@@ -81,7 +81,11 @@ struct ToasterModifier: ViewModifier {
 
 
 public extension View {
+  
+  /// Displays toast with animation
+  /// - Parameter toast: Toaster struct with type, content and duration
+  /// - Returns: A view with the toast animated over top
     func toast(_ toast: Binding<Toaster?>) -> some View {
-        self.modifier(ToasterModifier(toast: toast))
+        modifier(ToasterModifier(toast: toast))
     }
 }

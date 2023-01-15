@@ -12,7 +12,7 @@
 		4AA9D985296DC4B500F4AFE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA9D984296DC4B500F4AFE3 /* Assets.xcassets */; };
 		4AA9D988296DC4B500F4AFE3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA9D987296DC4B500F4AFE3 /* Preview Assets.xcassets */; };
 		4AA9D992296DC55700F4AFE3 /* Toaster in Frameworks */ = {isa = PBXBuildFile; productRef = 4AA9D991296DC55700F4AFE3 /* Toaster */; };
-		4AA9D994296DC5F900F4AFE3 /* ToasterConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AA9D993296DC5F900F4AFE3 /* ToasterConfig.plist */; };
+		4AA9D9962974321100F4AFE3 /* ToastButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA9D9952974321100F4AFE3 /* ToastButtonModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +22,8 @@
 		4AA9D984296DC4B500F4AFE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AA9D987296DC4B500F4AFE3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4AA9D98F296DC54A00F4AFE3 /* Toaster */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Toaster; path = ..; sourceTree = "<group>"; };
-		4AA9D993296DC5F900F4AFE3 /* ToasterConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ToasterConfig.plist; sourceTree = "<group>"; };
+		4AA9D9952974321100F4AFE3 /* ToastButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastButtonModifier.swift; sourceTree = "<group>"; };
+		4AA9D997297432CC00F4AFE3 /* ToasterConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ToasterConfig.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +59,10 @@
 		4AA9D97F296DC4B300F4AFE3 /* ToasterDemo */ = {
 			isa = PBXGroup;
 			children = (
-				4AA9D993296DC5F900F4AFE3 /* ToasterConfig.plist */,
+				4AA9D997297432CC00F4AFE3 /* ToasterConfig.plist */,
 				4AA9D980296DC4B300F4AFE3 /* ToasterDemoApp.swift */,
 				4AA9D982296DC4B300F4AFE3 /* ToastDemoView.swift */,
+				4AA9D9952974321100F4AFE3 /* ToastButtonModifier.swift */,
 				4AA9D984296DC4B500F4AFE3 /* Assets.xcassets */,
 				4AA9D986296DC4B500F4AFE3 /* Preview Content */,
 			);
@@ -151,7 +153,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AA9D994296DC5F900F4AFE3 /* ToasterConfig.plist in Resources */,
 				4AA9D988296DC4B500F4AFE3 /* Preview Assets.xcassets in Resources */,
 				4AA9D985296DC4B500F4AFE3 /* Assets.xcassets in Resources */,
 			);
@@ -166,6 +167,7 @@
 			files = (
 				4AA9D983296DC4B300F4AFE3 /* ToastDemoView.swift in Sources */,
 				4AA9D981296DC4B300F4AFE3 /* ToasterDemoApp.swift in Sources */,
+				4AA9D9962974321100F4AFE3 /* ToastButtonModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
