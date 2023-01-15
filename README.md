@@ -1,9 +1,10 @@
+
 ![Toaster with information mark making toast with the same mark](https://user-images.githubusercontent.com/10408147/212476665-d6fcfd76-1555-4a0c-8ed9-a1cc1e6e4059.png)
 # Toaster
 
 ![SwiftPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat) ![latest tag version](https://img.shields.io/github/v/tag/glowcap/Toaster) ![MIT license](https://img.shields.io/github/license/glowcap/Toaster)  
 
-Toaster is a SwiftUI toast library for iOS, macOS, and tvOS that allows you to quickly add customizable **WCAG 2.1 compliant** toast functionality to your SwiftUI with minimal code.
+Toaster is a Toast library built for and in SwiftUI for iOS, macOS, and tvOS that allows you to quickly add customizable **WCAG 2.1 compliant** toast functionality to your SwiftUI project with minimal code.
 
 ![Types of toasts on light and dark backgrounds](https://user-images.githubusercontent.com/10408147/212543513-d07445b0-9d45-4451-ab2c-40e1d9fb4965.jpg)
 
@@ -79,11 +80,11 @@ Toaster(_: ToastType, title: String, message: String, duration: Double)
 ```
 <br>
 
-> ☝️ It's recommended to allow the user to adjust duration. The user selection can then be stored in `UserDefaults` and used throughout the app.
+> ☝️ FYI, it's recommended to allow the user to adjust duration.
 
 ## Customizing
 
-Toaster allows you the ability to customize the colors used for your toasts by adding `ToasterConfig.plist` file to your project. 
+Toaster allows you to customize the colors used for your toasts by adding `ToasterConfig.plist` file to your project. 
 
 |Key                |Type      |Value             |
 |-------------------|--------|--------------------|
@@ -98,7 +99,7 @@ Toaster allows you the ability to customize the colors used for your toasts by a
 |text_color_dark    |String  |<Color_Hex_Value>   |
 |warning_color      |String  |<Color_Hex_Value>   |
 
-> **Note:** Toaster will use the its default color scheme if the `ToasterConfig.plist` file is not included in the project.
+> 📝**Note:** Toaster will use the its default color scheme if the `ToasterConfig.plist` file is not included in the project.
 
 ## WCAG 2.1 Compliance
 
@@ -106,12 +107,12 @@ Toaster strives to meet WCAG 2.1 AA compliance out of the box in these categorie
 
 **Guideline 1: Color**
 
-Toaster's default color scheme meets the standard color ratio requirements for  [text](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html) (4.5:1)
+Toaster's default color scheme meets the standard color ratio requirements [4.5:1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html) for text.
 <br>
 
 **Guideline 2: Consistent Identification and Location**
 
-In accordance with  WCAG guideline  [3.2.4](https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-consistent-functionality.html), toaster presents toasts add a prefix of the toast type for screen readers. 
+In accordance with  WCAG guideline  [3.2.4](https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-consistent-functionality.html), toast screenreader titles are prefixed with the type toast. 
 
 | ToastType  | Screen Reader Prefix |
 |------------|----------------------|
@@ -135,26 +136,21 @@ Toast focus order is:
  2. Message
  3. Close Button
 
-> ☝️ Since the Toast Icon is decorative and the title is prefixed with the Toast Type, the icon is hidden from screen readers.
+> ☝️ Since the Toast Icon is decorative and the screenreader title is prefixed with the Toast Type, the icon is hidden from screen readers.
 
 <br>
 
 **Guideline 5: Orientation**
 
-WCAG 2.1  [Guideline 1.3.4](https://www.w3.org/TR/WCAG21/#orientation)  requiring support for both portrait and landscape mode for native apps. Toaster's toasts will adjust when a device changes orientation and resets the duration time.
+WCAG 2.1  [Guideline 1.3.4](https://www.w3.org/TR/WCAG21/#orientation)  requires support for both portrait and landscape mode for native apps. Toaster's toasts adjust automatically when a device changes orientation while restarting the duration time.
 
 <br>
 
 **Guideline 6: Spacing for Toast message content**
 
-Satisfying  [Guideline 1.4.12](https://www.w3.org/TR/WCAG21/#text-spacing)  requires that the toast message content itself cannot experience loss of content or functionality by setting all of the following and by changing no other style property:
+Satisfying  [Guideline 1.4.12](https://www.w3.org/TR/WCAG21/#text-spacing)  requires that the toast message content itself cannot experience loss of content or functionality. Toaster meets this requirement with use of SwiftUI's built-in font types.
 
- - Line height (line spacing) to at least 1.5 times the font size
- - Spacing following paragraphs to at least 2 times the font size
- - Letter spacing (tracking) to at least 0.12 times the font size
- - Word spacing to at least 0.16 times the font size
-
-Toaster meets these with use of SwiftUI's built-in font types.
+>❗️Although this is handled out of the box, screen sizes have limits. Try to keep your toast message brief to ensure this guideline is maintained in your app.
 
 <br>
 
@@ -172,8 +168,7 @@ New to WCAG 2.1, satisfying  [Guideline 4.1.3](https://www.w3.org/TR/WCAG21/#sta
 
 In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.
 
-Using ARIA techniques such as role alert and aria-live, toast messages can be made available for screen reading technologies as soon as they are displayed.
-
+👷🏽‍♂️ _This feature is still under development. Currently, Toasts will block the window interaction (besides the toast) while the toast is displayed, and allows the next user focus to be the toast_
 
 ## Data Collection
 
