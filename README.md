@@ -1,9 +1,11 @@
-![Toaster with information mark making toast with the same mark](https://user-images.githubusercontent.com/10408147/212476665-d6fcfd76-1555-4a0c-8ed9-a1cc1e6e4059.png =150x)
+![Toaster with information mark making toast with the same mark](https://user-images.githubusercontent.com/10408147/212476665-d6fcfd76-1555-4a0c-8ed9-a1cc1e6e4059.png)
 # Toaster
 
 ![SwiftPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat) ![latest tag version](https://img.shields.io/github/v/tag/glowcap/Toaster) ![MIT license](https://img.shields.io/github/license/glowcap/Toaster)  
 
 Toaster is a SwiftUI toast library for iOS, macOS, and tvOS that allows you to quickly add customizable **WCAG 2.1 compliant** toast functionality to your SwiftUI with minimal code.
+
+![Types of toasts on light and dark backgrounds](https://user-images.githubusercontent.com/10408147/212543513-d07445b0-9d45-4451-ab2c-40e1d9fb4965.jpg)
 
 ## Installing Toaster
 
@@ -50,7 +52,7 @@ Toaster is written in, and designed for, SwiftUI. This makes implementation in y
 import Toaster
 
 struct YourViewThatDisplaysToasts {
-  @State  _private_  _var_  toast: Toaster? = _nil
+  @State private var toast: Toaster? = nil
   
   var body: some View {
     NavigationStack {
@@ -68,7 +70,8 @@ struct YourViewThatDisplaysToasts {
 }
 ```
 
-** Duration **
+**Duration**
+
 In accordance with WCAG 2.1 guidelines, Toaster's toasts default to a display duration of 6 seconds. This can be changed by setting the `duration` parameter in the initializer.
 
 ```swift
@@ -105,6 +108,7 @@ Toaster strives to meet WCAG 2.1 AA compliance out of the box in these categorie
 
 Toaster's default color scheme meets the standard color ratio requirements for  [text](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html) (4.5:1)
 <br>
+
 **Guideline 2: Consistent Identification and Location**
 
 In accordance with  WCAG guideline  [3.2.4](https://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-consistent-functionality.html), toaster presents toasts add a prefix of the toast type for screen readers. 
@@ -162,7 +166,7 @@ This is also handled almost natively by SwiftUI's font types. However, The lengt
 
 <br> 
 
-**Guideline 9:**  **Announcing toast message content without focus**
+**Guideline 9 (_under development_):**  **Announcing toast message content without focus**
 
 New to WCAG 2.1, satisfying  [Guideline 4.1.3](https://www.w3.org/TR/WCAG21/#status-messages)  requires that:
 
