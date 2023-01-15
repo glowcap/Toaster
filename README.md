@@ -2,7 +2,7 @@
 ![Toaster with information mark making toast with the same mark](https://user-images.githubusercontent.com/10408147/212476665-d6fcfd76-1555-4a0c-8ed9-a1cc1e6e4059.png)
 # Toaster
 
-![SwiftPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat) ![latest tag version](https://img.shields.io/github/v/tag/glowcap/Toaster) ![MIT license](https://img.shields.io/github/license/glowcap/Toaster)  
+![Swift](https://img.shields.io/badge/Swift-5.7-orange.svg) ![SwiftPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat) ![latest tag version](https://img.shields.io/github/v/tag/glowcap/Toaster) ![MIT license](https://img.shields.io/github/license/glowcap/Toaster)  
 
 Toaster is a Toast library built for and in SwiftUI for iOS, macOS, and tvOS that allows you to quickly add customizable **WCAG 2.1 compliant** toast functionality to your SwiftUI project with minimal code.
 
