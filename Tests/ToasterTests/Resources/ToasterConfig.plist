@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>error_color</key>
+	<string>101010</string>
+	<key>warning_color</key>
+	<string>111111</string>
+	<key>info_color</key>
+	<string>222222</string>
+	<key>success_color</key>
+	<string>333333</string>
+	<key>background</key>
+	<string>444444</string>
+	<key>background_dark</key>
+	<string>555555</string>
+	<key>text_color</key>
+	<string>666666</string>
+	<key>text_color_dark</key>
+	<string>777777</string>
+	<key>subtext_color</key>
+	<string>888888</string>
+	<key>subtext_color_dark</key>
+	<string>999999</string>
+</dict>
+</plist>

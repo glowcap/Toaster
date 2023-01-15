@@ -23,8 +23,8 @@ struct ToasterTheme {
   /// - Parameters:
   ///   - type: Type of toast to be displayed
   ///   - colorScheme: Device color scheme (ie: `light`, `dark`)
-  init(_ type: ToastType, colorScheme: ColorScheme) {
-    let config = Util.loadedToasterConfig() ?? [String: String]()
+  init(_ type: ToastType, colorScheme: ColorScheme, bundleURL: URL? = nil) {
+    let config = Util.loadedToasterConfig(bundleURL) ?? [String: String]()
     
     if let hex = config[type.configKey], let preferredColor = Color(hex: hex) {
       self.accent = preferredColor
