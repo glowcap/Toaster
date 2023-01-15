@@ -16,10 +16,46 @@ final class ToaserThemeTests: XCTestCase {
     
     allTypes.forEach { type in
       let sut = ToasterTheme(type, colorScheme: .light)
-      XCTAssertEqual(sut.textColor, Color.primary, "textColor incorrectly set for \(type)")
-      XCTAssertEqual(sut.subtextColor, Color.secondary, "subtextColor incorrectly set for \(type)")
-      XCTAssertEqual(sut.background, Color(UIColor.systemBackground), "background incorrectly set for \(type)")
-      XCTAssertEqual(sut.accent, type.defaultColor, "accent incorrectly set for \(type)")
+      XCTAssertEqual(
+        sut.textColor, Color.primary,
+        "textColor incorrectly set for \(type)"
+      )
+      XCTAssertEqual(
+        sut.subtextColor, Color.secondary,
+        "subtextColor incorrectly set for \(type)"
+      )
+      XCTAssertEqual(
+        sut.background, Color(UIColor.systemBackground),
+        "background incorrectly set for \(type)"
+      )
+      XCTAssertEqual(
+        sut.accent, type.defaultColor,
+        "accent incorrectly set for \(type)"
+      )
+    }
+  }
+  
+  func test_toasterThemes_default_dark() {
+    let allTypes = ToastType.allCases
+    
+    allTypes.forEach { type in
+      let sut = ToasterTheme(type, colorScheme: .dark)
+      XCTAssertEqual(
+        sut.textColor, Color.primary,
+        "textColor incorrectly set for \(type)"
+      )
+      XCTAssertEqual(
+        sut.subtextColor, Color.secondary,
+        "subtextColor incorrectly set for \(type)"
+      )
+      XCTAssertEqual(
+        sut.background, Color(UIColor.systemGray5),
+        "background incorrectly set for \(type)"
+      )
+      XCTAssertEqual(
+        sut.accent, type.defaultColor,
+        "accent incorrectly set for \(type)"
+      )
     }
   }
 
