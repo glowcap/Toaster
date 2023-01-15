@@ -30,7 +30,7 @@ or you can add the following dependency to your  `Package.swift`:
 Add the pod to your Podfile:
 
 ```ruby
-pod 'Toaster'
+pod 'Toaster', :git => 'https://github.com/glowcap/Toaster', :tag => 'v0.0.4'
 ```
 
 And then run:
