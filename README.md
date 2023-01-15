@@ -21,7 +21,7 @@ To install Toaster using  [Swift Package Manager](https://github.com/apple/swift
 or you can add the following dependency to your  `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/glowcap/toaster.git", from: "0.0.3")
+.package(url: "https://github.com/glowcap/toaster.git", from: "0.0.4")
 ```
 
 ### CocoaPods
