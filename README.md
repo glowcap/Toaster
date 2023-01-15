@@ -5,6 +5,8 @@
 
 Toaster is a SwiftUI toast library for iOS, macOS, and tvOS that allows you to quickly add customizable **WCAG 2.1 compliant** toast functionality to your SwiftUI with minimal code.
 
+![Types of toasts on light and dark backgrounds](https://user-images.githubusercontent.com/10408147/212543513-d07445b0-9d45-4451-ab2c-40e1d9fb4965.jpg)
+
 ## Installing Toaster
 
 Toaster supports [Swift Package Manager](https://www.swift.org/package-manager/) and [CocoaPods](https://cocoapods.org/).
