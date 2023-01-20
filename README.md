@@ -1,7 +1,8 @@
-![Toaster with information mark making toast with the same mark](https://user-images.githubusercontent.com/10408147/212476665-d6fcfd76-1555-4a0c-8ed9-a1cc1e6e4059.png)
 # Toaster
 
-![SwiftPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat) ![latest tag version](https://img.shields.io/github/v/tag/glowcap/Toaster) ![MIT license](https://img.shields.io/github/license/glowcap/Toaster)  
+![SwiftPM](https://img.shields.io/badge/SPM-supported-DE5C43.svg?style=flat) ![latest tag version](https://img.shields.io/github/v/tag/glowcap/Toaster) ![MIT license](https://img.shields.io/github/license/glowcap/Toaster) 
+
+![Toaster with information mark making toast with the same mark](https://user-images.githubusercontent.com/10408147/212476665-d6fcfd76-1555-4a0c-8ed9-a1cc1e6e4059.png) 
 
 Toaster is a SwiftUI toast library for iOS, macOS, and tvOS that allows you to quickly add customizable **WCAG 2.1 compliant** toast functionality to your SwiftUI with minimal code.
 
@@ -93,12 +94,12 @@ Toaster allows you the ability to customize the colors used for your toasts by a
 |info_color         |String  |<Color_Hex_Value>   |
 |subtext_color      |String  |<Color_Hex_Value>   |
 |subtext_color_dark |String  |<Color_Hex_Value>   |
-|success_color.     |String  |<Color_Hex_Value>   |
+|success_color      |String  |<Color_Hex_Value>   |
 |text_color         |String  |<Color_Hex_Value>   |
 |text_color_dark    |String  |<Color_Hex_Value>   |
 |warning_color      |String  |<Color_Hex_Value>   |
 
-> **Note:** Toaster will use the its default color scheme if the `ToasterConfig.plist` file is not included in the project.
+> 📝 Toaster will use the its default color scheme if the `ToasterConfig.plist` file is not included in the project.
 
 ## WCAG 2.1 Compliance
 
@@ -115,10 +116,10 @@ In accordance with  WCAG guideline  [3.2.4](https://www.w3.org/TR/UNDERSTANDING-
 
 | ToastType  | Screen Reader Prefix |
 |------------|----------------------|
-| error      | error                |
-| info       | information          |
-| success    | success              |
-| warning    | warning              |
+| error      | error,               |
+| info       | information,         |
+| success    | success,             |
+| warning    | warning,             |
 
 <br>
 

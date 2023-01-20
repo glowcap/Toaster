@@ -80,12 +80,21 @@ struct ToasterModifier: ViewModifier {
 }
 
 
-public extension View {
+extension View {
   
-  /// Displays toast with animation
+  /// Triggers the toast display with animation
+  ///
+  /// Once a ``Toaster`` State property is set, this method is called
+  /// to trigger the display of the toast.
+  ///
+  /// ```swift
+  /// toast($myInfoToast)
+  /// ```
+  ///
   /// - Parameter toast: Toaster struct with type, content and duration
   /// - Returns: A view with the toast animated over top
-    func toast(_ toast: Binding<Toaster?>) -> some View {
+    public func toast(_ toast: Binding<Toaster?>) -> some View {
         modifier(ToasterModifier(toast: toast))
     }
+  
 }
