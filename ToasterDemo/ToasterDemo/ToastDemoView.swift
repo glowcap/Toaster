@@ -10,7 +10,7 @@ import Toaster
 
 struct ToastDemoView: View {
   
-  @State private var toast: Toaster? = nil
+  @State private var toast: Toaster?
   
   var body: some View {
     NavigationStack {

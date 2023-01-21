@@ -8,6 +8,7 @@
 import SwiftUI
 
 /// Generates the toast theme.
+///
 /// - Note: Can be configured by the consumer with
 ///         the addtion of `ToasterConfig.plist`
 ///         in the app  bundle. Check `README.md`
@@ -20,6 +21,7 @@ struct ToasterTheme {
   
   /// Generates the theming for the toast by either using the
   /// app's `ToasterConfig.plist` file or default colors
+  ///
   /// - Parameters:
   ///   - type: Type of toast to be displayed
   ///   - colorScheme: Device color scheme (ie: `light`, `dark`)

@@ -7,11 +7,30 @@
 
 import SwiftUI
 
-/// Types of toasts that can be displayed.
+/// Type of toast to be displayed.
+///
+/// Internal variables key off of the case selected to
+/// generated the icon, color, and accessibility prefix
+/// to be used.
 public enum ToastType: CaseIterable {
+  /// Error Toast should be displayed
+  ///
+  /// Displayed with an 􀁡 icon and defaults to `Color.red`
   case error
+  
+  /// Info Toast should be displayed
+  ///
+  /// Displayed with an 􀅵 icon and defaults to `Color.blue`
   case info
+  
+  /// Success Toast should be displayed
+  ///
+  /// Displayed with an 􀁣 icon and defaults to `Color.green`
   case success
+  
+  /// Warning Toast should be displayed
+  ///
+  /// Displayed with an 􀇿 icon and defaults to `Color.orange`
   case warning
 }
 
