@@ -23,7 +23,7 @@ To install Toaster using  [Swift Package Manager](https://github.com/apple/swift
 or you can add the following dependency to your  `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/glowcap/toaster.git", from: "0.0.4")
+.package(url: "https://github.com/glowcap/toaster.git", from: "0.5.0")
 ```
 
 ### CocoaPods
@@ -31,7 +31,7 @@ or you can add the following dependency to your  `Package.swift`:
 Add the pod to your Podfile:
 
 ```ruby
-pod 'Toaster', :git => 'https://github.com/glowcap/Toaster', :tag => 'v0.0.4'
+pod 'Toaster', :git => 'https://github.com/glowcap/Toaster', :tag => 'v0.5.0'
 ```
 
 And then run:
