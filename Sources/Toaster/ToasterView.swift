@@ -16,10 +16,6 @@ struct ToasterView: View {
   
   var onCancel: (() -> Void)
   
-  var accessibilityTitle: String {
-    "\(type.prefix) \(title)"
-  }
-  
   private var theme: ToasterTheme {
     ToasterTheme(type, colorScheme: colorScheme)
   }
@@ -49,7 +45,7 @@ private extension ToasterView {
   var icon: some View {
     Image(systemName: type.iconSystemName)
       .foregroundColor(theme.accent)
-      .accessibilityHidden(true)
+      .accessibilityLabel(type.accessibilityLabel)
   }
   
   var contentText: some View {
@@ -66,7 +62,6 @@ private extension ToasterView {
       .font(.callout)
       .fontWeight(.medium)
       .foregroundColor(theme.textColor)
-      .accessibilityLabel(accessibilityTitle)
   }
   
   var messageText: some View {
@@ -76,13 +71,15 @@ private extension ToasterView {
   }
   
   var mainContent: some View {
-    HStack(alignment: .top) {
-      icon
-      contentText
-        .accessibilitySortPriority(1)
-      Spacer(minLength: 10)
+    HStack(alignment: .top, spacing: 0) {
+      HStack(alignment: .top, spacing: 0) {
+        icon
+          .padding(.trailing, 4)
+        contentText
+      }
+      .accessibilityElement(children: .combine)
+      .frame(maxWidth: .infinity, alignment: .leading)
       closeButton
-        .accessibilitySortPriority(0)
     }
     .padding([.vertical, .trailing], 8)
     .padding(.leading, 16)
@@ -96,6 +93,7 @@ private extension ToasterView {
       Image(systemName: "xmark")
         .font(.system(size: 12))
         .foregroundColor(theme.textColor)
+        .frame(width: 24, height: 24)
     }
     .accessibilityLabel("close")
   }
