@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Toaster'
-  s.version          = '0.5.0'
+  s.version          = '1.0.0'
   s.summary          = 'Toaster - SwiftUI toast library for iOS, macOS, and tvOS'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Toaster is a SwiftUI toast library for iOS, macOS, and tvOS that allows you to q
   s.source           = { :git => 'https://github.com/glowcap/Toaster.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/daymeing'
 
-  s.ios.deployment_target = '15.0'
+  s.ios.deployment_target = '16.0'
   s.swift_version = '5.0'
 
   s.source_files = 'Sources/Toaster/**/*'
