@@ -17,7 +17,6 @@ struct ToasterModifier: ViewModifier {
   
   func body(content: Content) -> some View {
     content
-      .allowsHitTesting(toast == nil)
       .accessibilityHidden(toast != nil)
       .frame(maxWidth: .infinity, maxHeight: .infinity)
       .overlay(toasterOverlay)
@@ -33,7 +32,7 @@ struct ToasterModifier: ViewModifier {
       if toast != nil {
         Color(.clear)
           .frame(maxWidth: .infinity, maxHeight: .infinity)
-          .disabled(true)
+          .allowsHitTesting(false)
       }
       toasterView()
         .offset(y: -30)
@@ -46,6 +45,7 @@ struct ToasterModifier: ViewModifier {
     if let toast = toast {
       VStack {
         Spacer()
+          .allowsHitTesting(false)
         ToasterView(
           type: toast.type,
           title: toast.title,
