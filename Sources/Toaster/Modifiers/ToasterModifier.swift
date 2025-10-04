@@ -9,15 +9,17 @@ import SwiftUI
 
 struct ToasterModifier: ViewModifier {
   
-  /// toast content to be shown
+  /// Toast content to be shown.
   @Binding var toast: Toaster?
-  
-  /// needed to dismiss on tap
+
+  /// needed to dismiss on tap.
   @State private var workItem: DispatchWorkItem?
-  
+
+  /// Vertical drag gesture amount.
+  @State private var verticalDragAmount: CGFloat = .zero
+
   func body(content: Content) -> some View {
     content
-      .allowsHitTesting(toast == nil)
       .accessibilityHidden(toast != nil)
       .frame(maxWidth: .infinity, maxHeight: .infinity)
       .overlay(toasterOverlay)
@@ -33,37 +35,61 @@ struct ToasterModifier: ViewModifier {
       if toast != nil {
         Color(.clear)
           .frame(maxWidth: .infinity, maxHeight: .infinity)
-          .disabled(true)
+          .allowsHitTesting(false)
       }
       toasterView()
-        .offset(y: -30)
+        .offset(y: -30 + verticalDragAmount)
         .accessibilitySortPriority(1000)
-    }.animation(.spring(), value: toast)
+        .gesture(
+          DragGesture(coordinateSpace: .local)
+            .onChanged(handleDragChanged)
+            .onEnded(handleDragEnded)
+        )
+    }
+    .animation(.spring, value: toast)
     .accessibilityElement(children: .contain)
   }
 
   @ViewBuilder private func toasterView() -> some View {
     if let toast = toast {
       VStack {
-        Spacer()
         ToasterView(
           type: toast.type,
           title: toast.title,
           message: toast.message)
         { dismissToast() }
       }
+      .frame(maxHeight: .infinity, alignment: .bottom)
       .transition(.move(edge: .bottom))
     }
   }
   
+  /// Handles drag changes while drag is active.
+  /// - Parameter drag: Drag value.
+  private func handleDragChanged(_ drag: DragGesture.Value) {
+    let dragHeight = drag.translation.height
+    // ignore drags that would move the toast up
+    guard dragHeight > 0 else { return }
+    verticalDragAmount = dragHeight
+  }
+  
+  /// Handles end of drag.
+  /// - Parameter drag: Drag value
+  private func handleDragEnded(_ drag: DragGesture.Value) {
+    withAnimation(.smooth) {
+      if drag.translation.height > 80 {
+        dismissToast()
+      }
+      // always reset the drag amount
+      verticalDragAmount = .zero
+    }
+  }
+
   /// Tracks toast's life cycle
   private func trackToast() {
-    guard let toast else { return }
-  
-    /// adds tactile feedback to notify the user that a toast is being displayed
-    UIImpactFeedbackGenerator(style: .light).impactOccurred()
-    
-    guard toast.duration > 0 else { return }
+    guard let toast,
+          toast.duration > 0
+    else { return }
     workItem = DispatchWorkItem { dismissToast() }
     DispatchQueue.main
       .asyncAfter(deadline: .now() + toast.duration, execute: workItem!)
@@ -94,7 +120,8 @@ extension View {
   /// - Parameter toast: Toaster struct with type, content and duration
   /// - Returns: A view with the toast animated over top
     public func toast(_ toast: Binding<Toaster?>) -> some View {
-        modifier(ToasterModifier(toast: toast))
+      self.modifier(ToasterModifier(toast: toast))
+        .sensoryFeedback(toast)
     }
   
 }

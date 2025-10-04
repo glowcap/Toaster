@@ -67,14 +67,14 @@ extension ToastType {
   }
   
   // TODO: - localization needed
-  /// Title prefix for screen readers.
-  var prefix: String {
+  /// Accessibility label for icon when shown.
+  var accessibilityLabel: String {
     switch self {
-    case .error: return "error,"
-    case .info: return "information,"
-    case .success: return "success,"
-    case .warning: return "warning,"
+    case .error: return "Error"
+    case .info: return "Information"
+    case .success: return "Success"
+    case .warning: return "Warning"
     }
   }
-  
+
 }

@@ -7,6 +7,13 @@
 
 Toaster is a Toast library built for and in SwiftUI for iOS, macOS, and tvOS that allows you to quickly add customizable **WCAG 2.1 compliant** toast functionality to your SwiftUI project with minimal code.
 
+Toaster has some great features that allow for seamless integration in your app:
+
+- Color customization - To match your app's theme
+- WCAG 2.1 compliance - Accessibility out of the box
+- Haptics (iOS 17+) - Sensory feedback based on toast type
+- Custom duration - Display for as long (or short as you like)
+
 ![Types of toasts on light and dark backgrounds](https://user-images.githubusercontent.com/10408147/212543513-d07445b0-9d45-4451-ab2c-40e1d9fb4965.jpg)
 
 ## Installing Toaster
@@ -23,7 +30,7 @@ To install Toaster using  [Swift Package Manager](https://github.com/apple/swift
 or you can add the following dependency to your  `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/glowcap/toaster.git", from: "0.5.0")
+.package(url: "https://github.com/glowcap/toaster.git", from: "1.0.0")
 ```
 
 ### CocoaPods
@@ -31,7 +38,7 @@ or you can add the following dependency to your  `Package.swift`:
 Add the pod to your Podfile:
 
 ```ruby
-pod 'Toaster', :git => 'https://github.com/glowcap/Toaster', :tag => 'v0.5.0'
+pod 'Toaster', :git => 'https://github.com/glowcap/Toaster', :tag => 'v1.0.0'
 ```
 
 And then run:
@@ -117,10 +124,10 @@ In accordance with  WCAG guideline  [3.2.4](https://www.w3.org/TR/UNDERSTANDING-
 
 | ToastType  | Screen Reader Prefix |
 |------------|----------------------|
-| error      | error,               |
-| info       | information,         |
-| success    | success,             |
-| warning    | warning,             |
+| error      | error                |
+| info       | information          |
+| success    | success              |
+| warning    | warning              |
 
 <br>
 
@@ -133,11 +140,8 @@ The close button has the alt-text of `close`
 
 Toast focus order is:
 
- 1. Title
- 2. Message
+ 1. Content
  3. Close Button
-
-> ☝️ Since the Toast Icon is decorative and the screenreader title is prefixed with the Toast Type, the icon is hidden from screen readers.
 
 <br>
 
@@ -163,14 +167,6 @@ This is also handled almost natively by SwiftUI's font types. However, The lengt
 
 <br> 
 
-**Guideline 9 (_under development_):**  **Announcing toast message content without focus**
-
-New to WCAG 2.1, satisfying  [Guideline 4.1.3](https://www.w3.org/TR/WCAG21/#status-messages)  requires that:
-
-In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.
-
-👷🏽‍♂️ _This feature is still under development. Currently, Toasts will block the window interaction (besides the toast) while the toast is displayed, and allows the next user focus to be the toast_
-
 ## Data Collection
 
 Toaster does not collect any data. This notice is provided to help you fill out  [App Privacy Details](https://developer.apple.com/app-store/app-privacy-details/).
@@ -180,3 +176,4 @@ Toaster does not collect any data. This notice is provided to help you fill out 
 Contributions are always appreciated! To make changes to the project, you can fork the repo and open `ToastDemo.xcworkspace`. This workspace includes:
 
  - the Toaster package (for iOS, macOS, and tvOS)
+
